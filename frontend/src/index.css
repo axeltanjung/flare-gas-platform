@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-carbon-950 text-white antialiased;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-carbon-800/50 backdrop-blur-sm border border-carbon-700/50 rounded-xl p-6;
+  }
+  .card-hover {
+    @apply card hover:border-esg-500/30 transition-all duration-300;
+  }
+  .kpi-value {
+    @apply text-3xl font-bold tracking-tight;
+  }
+  .kpi-label {
+    @apply text-sm text-carbon-400 font-medium uppercase tracking-wider;
+  }
+  .badge-low {
+    @apply bg-esg-500/20 text-esg-400 px-3 py-1 rounded-full text-xs font-medium;
+  }
+  .badge-medium {
+    @apply bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full text-xs font-medium;
+  }
+  .badge-high {
+    @apply bg-red-500/20 text-red-400 px-3 py-1 rounded-full text-xs font-medium;
+  }
+  .nav-link {
+    @apply flex items-center gap-3 px-4 py-3 rounded-lg text-carbon-400 hover:text-white hover:bg-carbon-800/50 transition-all duration-200;
+  }
+  .nav-link-active {
+    @apply nav-link text-white bg-esg-600/20 border-l-2 border-esg-500;
+  }
+}
