@@ -10,11 +10,10 @@ from sklearn.metrics import (
 )
 from sklearn.model_selection import GridSearchCV
 from imblearn.over_sampling import SMOTE
-from imblearn.pipeline import Pipeline as ImbPipeline
 import mlflow
 import joblib
 from pathlib import Path
-from typing import Dict, Optional, Tuple
+from typing import Dict, Optional
 
 
 class ClassificationTrainer:

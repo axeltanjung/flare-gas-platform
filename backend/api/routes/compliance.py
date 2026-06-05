@@ -1,5 +1,4 @@
 from fastapi import APIRouter, HTTPException, Query
-from typing import Optional
 import pandas as pd
 from pathlib import Path
 
