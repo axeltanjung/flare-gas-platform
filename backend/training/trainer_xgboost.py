@@ -7,7 +7,7 @@ import mlflow
 import mlflow.xgboost
 import joblib
 from pathlib import Path
-from typing import Dict, Optional, Tuple
+from typing import Dict, Optional
 
 
 class XGBoostTrainer:
