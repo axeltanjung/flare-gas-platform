@@ -6,9 +6,20 @@ echo "  FlareGas Intelligence Platform Setup"
 echo "=========================================="
 
 echo ""
+echo "[0/6] Ensuring pip is available..."
+if ! pip --version &>/dev/null && ! pip3 --version &>/dev/null; then
+    echo "  pip not found, installing via apt..."
+    sudo apt-get update && sudo apt-get install -y python3-pip
+fi
+PIP_CMD="pip3"
+if pip --version &>/dev/null; then PIP_CMD="pip"; fi
+PYTHON_CMD="python3"
+if python --version &>/dev/null; then PYTHON_CMD="python"; fi
+
+echo ""
 echo "[1/6] Installing backend dependencies..."
-pip install --upgrade pip
-pip install -r backend/requirements.txt
+$PIP_CMD install --upgrade pip
+$PIP_CMD install -r backend/requirements.txt
 echo "✓ Backend dependencies installed"
 
 echo ""
@@ -20,18 +31,18 @@ echo "✓ Frontend dependencies installed"
 
 echo ""
 echo "[3/6] Generating synthetic flare gas dataset..."
-python data/synthetic_flare_gas_generator.py --rows 150000 --output ./data
+$PYTHON_CMD data/synthetic_flare_gas_generator.py --rows 150000 --output ./data
 echo "✓ Dataset generated (150K rows)"
 
 echo ""
 echo "[4/6] Training ML models..."
 export PYTHONPATH="${PYTHONPATH}:$(pwd)"
-python -m backend.training.pipeline --data ./data/flare_gas_dataset.csv --models ./models
+$PYTHON_CMD -m backend.training.pipeline --data ./data/flare_gas_dataset.csv --models ./models
 echo "✓ Models trained and saved"
 
 echo ""
 echo "[5/6] Verifying API startup..."
-python -c "from backend.api.main import app; print('✓ FastAPI app verified')"
+$PYTHON_CMD -c "from backend.api.main import app; print('✓ FastAPI app verified')"
 
 echo ""
 echo "[6/6] Building frontend production bundle..."
