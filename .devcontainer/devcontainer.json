@@ -1,0 +1,51 @@
+{
+  "name": "FlareGas Intelligence Platform",
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.11",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "20"
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "forwardPorts": [8000, 3000, 5000, 5173],
+  "portsAttributes": {
+    "8000": { "label": "FastAPI Backend", "onAutoForward": "notify" },
+    "3000": { "label": "Frontend (Nginx)", "onAutoForward": "openPreview" },
+    "5000": { "label": "MLflow UI", "onAutoForward": "notify" },
+    "5173": { "label": "Vite Dev Server", "onAutoForward": "openPreview" }
+  },
+  "postCreateCommand": "chmod +x .devcontainer/post-create.sh && .devcontainer/post-create.sh",
+  "postStartCommand": "echo '✅ FlareGas platform ready. Run: docker-compose up --build OR start services individually.'",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "charliermarsh.ruff",
+        "dbaeumer.vscode-eslint",
+        "bradlc.vscode-tailwindcss",
+        "esbenp.prettier-vscode",
+        "ms-azuretools.vscode-docker",
+        "humao.rest-client",
+        "eamodio.gitlens"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "python.analysis.typeCheckingMode": "basic",
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "[python]": {
+          "editor.defaultFormatter": "charliermarsh.ruff"
+        }
+      }
+    }
+  },
+  "remoteEnv": {
+    "APP_ENV": "development",
+    "DATABASE_URL": "sqlite:///./data/flaregas.db",
+    "MLFLOW_TRACKING_URI": "http://localhost:5000",
+    "MODEL_PATH": "./models",
+    "DATA_PATH": "./data",
+    "PYTHONPATH": "${containerWorkspaceFolder}"
+  }
+}
