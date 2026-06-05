@@ -3,7 +3,6 @@ import pandas as pd
 from pathlib import Path
 
 from backend.models.schemas import FacilityResponse
-from backend.services.prediction_service import prediction_service
 from backend.utils.config import get_settings
 
 router = APIRouter()

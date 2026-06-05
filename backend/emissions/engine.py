@@ -1,6 +1,5 @@
-import numpy as np
 import pandas as pd
-from typing import Dict, Optional
+from typing import Dict, List
 from backend.emissions.calculator import EmissionCalculator
 from backend.emissions.compliance import ComplianceChecker
 
@@ -90,6 +89,3 @@ class EmissionEngine:
             "total_energy_wasted_mwh": float(emission_results["energy_wasted_mwh"].sum()),
             "compliance": compliance,
         }
-
-
-from typing import List
