@@ -4,13 +4,11 @@
   "features": {
     "ghcr.io/devcontainers/features/node:1": {
       "version": "20"
-    },
-    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+    }
   },
-  "forwardPorts": [8000, 3000, 5000, 5173],
+  "forwardPorts": [8000, 5000, 5173],
   "portsAttributes": {
     "8000": { "label": "FastAPI Backend", "onAutoForward": "notify" },
-    "3000": { "label": "Frontend (Nginx)", "onAutoForward": "openPreview" },
     "5000": { "label": "MLflow UI", "onAutoForward": "notify" },
     "5173": { "label": "Vite Dev Server", "onAutoForward": "openPreview" }
   },
@@ -25,7 +23,6 @@
         "dbaeumer.vscode-eslint",
         "bradlc.vscode-tailwindcss",
         "esbenp.prettier-vscode",
-        "ms-azuretools.vscode-docker",
         "humao.rest-client",
         "eamodio.gitlens"
       ],
