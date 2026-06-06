@@ -14,6 +14,7 @@
 
 ## Table of Contents
 
+- [Project Preview](#project-preview)
 - [Project Background](#project-background)
 - [Business Value](#business-value)
 - [Domain Knowledge](#domain-knowledge)
@@ -29,6 +30,20 @@
 - [Future Improvements](#future-improvements)
 
 ---
+
+## Project Preview
+
+<img src="assets/ESG Overview.png" width="1200"/>
+
+<img src="assets/Facility Detail.png" width="1200"/>
+
+<img src="assets/ESG Overview.png" width="1200"/>
+
+<img src="assets/AI Insights.png" width="1200"/>
+
+<img src="assets/Compliance & Risk.png" width="1200"/>
+
+<img src="assets/Opimization.png" width="1200"/>
 
 ## Project Background
 
